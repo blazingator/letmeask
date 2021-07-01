@@ -32,4 +32,4 @@ App para criação de salas de perguntas e repostas para ser usado durante lives
 - [ ] Tornar o layout responsivo
 - [ ] Criar uma versão PWA
 
-[shot]: screenshot.png
+[shot]: .github/cover.png
