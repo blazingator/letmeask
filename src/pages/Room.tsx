@@ -5,7 +5,10 @@ import {Button, RoomCode, Question} from '../components'
 
 import logoImg from '../assets/images/logo.svg'
 
-import '../styles/room.scss'
+import {
+  RoomPage, HeaderContent, RoomTitle, QuestionList, QuestionField, FormFooter
+} from '../styles/room'
+
 import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
 import { database } from '../services/firebase'
@@ -58,28 +61,28 @@ export function Room(){
   }
 
   return (
-    <div id="page-room">
+    <RoomPage id="page-room">
       <header>
-        <div className="content">
+        <HeaderContent>
           <img src={logoImg} alt="Logo" />
           <RoomCode code={roomId} />
-        </div>
+        </HeaderContent>
       </header>
 
       <main>
-        <div className="room-title">
+        <RoomTitle>
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
-        </div>
+        </RoomTitle>
 
         <form onSubmit={handleSendQuestion}>
-          <textarea
+          <QuestionField
             placeholder="O que você quer perguntar?"
             onChange={ev => setNewQuestion(ev.target.value)}
             value={newQuestion}
           />
 
-          <div className="form-footer">
+          <FormFooter>
             { user ? (
               <div className="user-info">
                 <img src={user.avatar} alt={user.name} />
@@ -89,10 +92,10 @@ export function Room(){
               <span>Para enviar uma pergunta, <button>faça seu login</button>.</span>
             ) }
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
-          </div>
+          </FormFooter>
         </form>
 
-        <div className="question-list">
+        <QuestionList>
           {questions.map((q) => (
             <Question
               key={q.id}
@@ -117,8 +120,8 @@ export function Room(){
             </Question>
             )
           )}
-        </div>
+        </QuestionList>
       </main>
-    </div>
+    </RoomPage>
   )
 }

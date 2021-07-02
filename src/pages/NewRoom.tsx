@@ -7,7 +7,10 @@ import {Button} from '../components'
 import ilustImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg'
 
-import '../styles/auth.scss'
+import {
+  AuthPage, Banner, MainContent, Form
+} from '../styles/auth'
+
 import { database } from '../services/firebase'
 
 export function NewRoom(){
@@ -34,17 +37,17 @@ export function NewRoom(){
   }
 
   return (
-    <div id="page-auth">
-      <aside>
+    <AuthPage id="page-auth">
+      <Banner>
         <img src={ilustImg} alt="Ilustração simbolizando perguntas e repostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas de sua audiência em tempo-real</p>
-      </aside>
+      </Banner>
       <main>
-        <div className="main-content">
+        <MainContent>
           <img src={logoImg} alt="Letmeask" />
           <h2>Criar um nova sala</h2>
-          <form onSubmit={handleCreateRoom}>
+          <Form onSubmit={handleCreateRoom}>
             <input
               type="text"
               placeholder="Nome da sala"
@@ -54,10 +57,10 @@ export function NewRoom(){
             <Button type="submit">
               Criar sala
             </Button>
-          </form>
+          </Form>
           <p>Quer entrar em uma sala existente? <Link to="/">Clique aqui</Link></p>
-        </div>
+        </MainContent>
       </main>
-    </div>
+    </AuthPage>
   )
 }
