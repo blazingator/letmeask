@@ -5,15 +5,15 @@ const Button = styled.button`
   border-radius: 8px;
   overflow: hidden;
 
-  background: #fff;
-  border: 1px solid #835afd;
+  background: ${props => props.theme.white};
+  border: 1px solid ${props => props.theme.main};
   cursor: pointer;
 
   display: flex;
 `
 
 const Icon = styled.div`
-  background: #835afd;
+  background: ${props => props.theme.main};
   padding: 0 12px;
   display: flex;
   justify-content: center;

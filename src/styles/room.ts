@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const RoomPage = styled.header`
   header{
     padding: 24px;
-    border-bottom: 1px solid ${props => props.theme.white_2};
+    border-bottom: 1px solid ${props => props.theme.darkWhite};
   }
 
   main{
@@ -64,7 +64,7 @@ const QuestionField = styled.textarea`
   border: 0;
   padding: 16px;
   border-radius: 8px;
-  background: ${props => props.theme.white_3};
+  background: ${props => props.theme.darkerWhite};
   box-shadow: ${props => props.theme.boxShadow};
   resize: vertical;
   min-height: 130px;
