@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const RoomPage = styled.header`
   header{
     padding: 24px;
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 1px solid ${props => props.theme.white_2};
   }
 
   main{
@@ -40,15 +40,15 @@ const RoomTitle = styled.div`
   h1{
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    color: #29292e;
+    color: ${props => props.theme.darkGrey};
   }
 
   span{
     margin-left: 16px;
-    background: #e559f9;
+    background: ${props => props.theme.pink};
     border-radius: 9999px;
     padding: 8px 16px;
-    color: #fff;
+    color: ${props => props.theme.white};
     font-weight: 500;
     font-size: 14px;
   }
@@ -64,8 +64,8 @@ const QuestionField = styled.textarea`
   border: 0;
   padding: 16px;
   border-radius: 8px;
-  background: #fefefe;
-  box-shadow: 0 2px 12px rgba(0,0,0, 0.04);
+  background: ${props => props.theme.white_3};
+  box-shadow: ${props => props.theme.boxShadow};
   resize: vertical;
   min-height: 130px;
 `
@@ -88,7 +88,7 @@ const FormFooter = styled.div`
 
     > span{
       margin-left: 8px;
-      color: #29292e;
+      color: ${props => props.theme.darkGrey};
       font-weight: 500;
       font-size: 14px;
     }
@@ -96,7 +96,7 @@ const FormFooter = styled.div`
 
   span{
     font-size: 14px;
-    color: #737380;
+    color: ${props => props.theme.lightGrey};
     font-weight: 500;
 
     button{
