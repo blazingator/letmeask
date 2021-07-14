@@ -4,8 +4,8 @@ export const ButtonStyles = styled.button`
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
-  color: #fff;
+  background: ${props => props.theme.main};
+  color: ${props => props.theme.white};
   padding: 0 32px;
 
   display: flex;
@@ -22,9 +22,9 @@ export const ButtonStyles = styled.button`
   }
 
   &.outlined{
-    background: #fff;
-    border: 1px solid #835afd;
-    color: #835afd;
+    background: ${props => props.theme.white};
+    border: 1px solid ${props => props.theme.main};
+    color: ${props => props.theme.main};
   }
 
   &:not(:disabled):hover{

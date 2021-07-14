@@ -17,8 +17,8 @@ const AuthPage = styled.div`
 
 const Banner = styled.aside`
   flex: 7;
-  background: #835afd;
-  color: #fff;
+  background: ${props => props.theme.main};
+  color: ${props => props.theme.white};
 
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ const Banner = styled.aside`
     font-size: 24px;
     line-height: 32px;
     margin-top: 16px;
-    color: #f8f8f8;
+    color: ${props => props.theme.text};
   }
 `
 
@@ -67,8 +67,8 @@ const CreateRoomButton = styled.button`
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #ea4335;
-  color: #fff;
+  background: ${props => props.theme.red};
+  color: ${props => props.theme.white};
 
   display: flex;
   justify-content: center;
@@ -93,8 +93,8 @@ const Form = styled.form`
     height: 50px;
     border-radius: 8px;
     padding: 0 16px;
-    background: #fff;
-    border: 1px solid #a8a8b3;
+    background: ${props => props.theme.white};
+    border: 1px solid ${props => props.theme.grey};
   }
 
   button{
@@ -108,7 +108,7 @@ const Form = styled.form`
 
 const Separator = styled.div`
   font-size: 14px;
-  color: #a8a8b3;
+  color: ${props => props.theme.grey};
 
   margin: 32px 0;
   display: flex;
@@ -118,14 +118,14 @@ const Separator = styled.div`
     content: '';
     flex: 1;
     height: 1px;
-    background: #a8a8b3;
+    background: ${props => props.theme.grey};
     margin-right: 16px;
   }
   &::after{
     content: '';
     flex: 1;
     height: 1px;
-    background: #a8a8b3;
+    background: ${props => props.theme.grey};
     margin-left: 16px;
   }
 
