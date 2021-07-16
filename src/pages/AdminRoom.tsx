@@ -2,10 +2,10 @@ import { useHistory, useParams } from 'react-router-dom'
 
 import {Button, RoomCode, Question} from '../components'
 
-import logoImg from '../assets/images/logo.svg'
 import deleteImg from '../assets/images/delete.svg'
 import checkImg from '../assets/images/check.svg'
 import answerImg from '../assets/images/answer.svg'
+import {useTheme} from '../hooks/useTheme'
 import {
   RoomPage, HeaderContent, RoomTitle, QuestionList
 } from '../styles/room'
@@ -19,6 +19,7 @@ type RoomParams = {
 }
 
 export function AdminRoom(){
+  const {logo} = useTheme()
   // const {user} = useAuth()
   const history = useHistory()
   const params = useParams<RoomParams>()
@@ -51,7 +52,7 @@ export function AdminRoom(){
     <RoomPage>
       <header>
         <HeaderContent>
-          <img src={logoImg} alt="Logo" />
+          <img src={logo} alt="Logo" />
           <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleEndRoom}>Encerrar Sala</Button>

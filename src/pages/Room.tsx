@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom'
 
 import {Button, RoomCode, Question} from '../components'
 
-import logoImg from '../assets/images/logo.svg'
-
+// import logoImg from '../assets/images/logo.svg'
+import {useTheme} from '../hooks/useTheme'
 import {
   RoomPage, HeaderContent, RoomTitle, QuestionList, QuestionField, FormFooter
 } from '../styles/room'
@@ -18,6 +18,7 @@ type RoomParams = {
 }
 
 export function Room(){
+  const {logo} = useTheme()
   const {user} = useAuth()
   const params = useParams<RoomParams>()
   const roomId = params.id
@@ -64,7 +65,7 @@ export function Room(){
     <RoomPage id="page-room">
       <header>
         <HeaderContent>
-          <img src={logoImg} alt="Logo" />
+          <img src={logo} alt="Logo" />
           <RoomCode code={roomId} />
         </HeaderContent>
       </header>

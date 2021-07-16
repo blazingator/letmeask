@@ -7,9 +7,9 @@ import {Button} from '../components'
 import { useAuth } from '../hooks/useAuth'
 
 import ilustImg from '../assets/images/illustration.svg'
-import logoImg from '../assets/images/logo.svg'
+// import logoImg from '../assets/images/logo.svg'
 import googleIconImg from '../assets/images/google-icon.svg'
-
+import { useTheme } from '../hooks/useTheme'
 import {
   AuthPage, Banner, MainContent,
   Separator, CreateRoomButton, Form
@@ -18,6 +18,7 @@ import {
 import { database } from '../services/firebase'
 
 export function Home(){
+  const {logo} = useTheme()
   const { user, signInWithGoogle} = useAuth()
   const history = useHistory()
 
@@ -61,7 +62,7 @@ export function Home(){
       </Banner>
       <main>
         <MainContent>
-          <img src={logoImg} alt="Letmeask" />
+          <img src={logo} alt="Letmeask" />
           <CreateRoomButton onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="Logo do google" />
             Crie sua sala com o Google
