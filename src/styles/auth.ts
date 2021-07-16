@@ -40,7 +40,7 @@ const Banner = styled.aside`
     font-size: 24px;
     line-height: 32px;
     margin-top: 16px;
-    color: ${props => props.theme.text};
+    color: ${props => props.theme.darkWhite};
   }
 `
 
@@ -61,7 +61,12 @@ const MainContent = styled.div`
     margin: 64px 0 24px;
     font-family: 'Poppins',sans-serif;
   }
+
+  a {
+    color: ${props => props.theme.pink}
+  }
 `
+
 const CreateRoomButton = styled.button`
   margin-top: 64px;
   height: 50px;

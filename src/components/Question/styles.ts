@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  background: ${props => props.theme.darkerWhite};
+  background: ${props => props.theme.darkerBg};
   border-radius: 8px;
   box-shadow: ${props => props.theme.boxShadow};
   padding: 24px;
@@ -11,11 +11,17 @@ export const Wrapper = styled.div`
   }
   
   &.answered{
-    background: ${props => props.theme.lighterGrey};
+    background: ${({theme}) => theme.name === 'dark'
+      ? theme.darkGrey
+      : theme.lighterGrey
+    };
   }
   
   &.highlighted{
-    background: ${props => props.theme.lighterWhite};
+    background: ${({theme}) => theme.name === 'dark'
+      ? theme.bg
+      : theme.lighterGrey
+    };
     border: 1px solid ${props => props.theme.main};
 
     footer .user-info span{
@@ -25,7 +31,7 @@ export const Wrapper = styled.div`
 `
 
 export const Content = styled.p`
-  color: ${props => props.theme.darkGrey};
+  color: ${props => props.theme.darkFg};
 `
 
 export const Footer = styled.footer`
@@ -52,10 +58,10 @@ export const Footer = styled.footer`
       gap: 8px;
 
       &.liked{
-        color: ${props => props.theme.main};
+        color: ${props => props.theme.lightPurple};
 
         svg path{
-          stroke: ${props => props.theme.main};
+          stroke: ${props => props.theme.lightPurple};
         }
       }
     }

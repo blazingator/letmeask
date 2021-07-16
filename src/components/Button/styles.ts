@@ -22,8 +22,12 @@ export const ButtonStyles = styled.button`
   }
 
   &.outlined{
-    background: ${props => props.theme.white};
-    border: 1px solid ${props => props.theme.main};
+    background: ${props => props.theme.lighterGrey};
+    // TODO melhorar o contraste de cores da borda no tema dark
+    border: ${({theme}) => theme.name === 'dark'
+      ? 'none'
+      : `1px solid ${theme.main}`
+    };
     color: ${props => props.theme.main};
   }
 

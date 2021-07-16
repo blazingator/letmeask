@@ -5,7 +5,7 @@ const Button = styled.button`
   border-radius: 8px;
   overflow: hidden;
 
-  background: ${props => props.theme.white};
+  background: ${props => props.theme.lighterBg};
   border: 1px solid ${props => props.theme.main};
   cursor: pointer;
 
@@ -29,6 +29,7 @@ const Code = styled.span`
   width: 240px;
   font-size: 14px;
   font-weight: 500;
+  color: ${props => props.theme.fg}
 `
 
 export {Button, Icon, Code}

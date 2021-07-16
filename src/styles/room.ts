@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const RoomPage = styled.header`
   header{
     padding: 24px;
-    border-bottom: 1px solid ${props => props.theme.darkWhite};
+    border-bottom: 1px solid ${props => props.theme.border};
   }
 
   main{
@@ -40,7 +40,7 @@ const RoomTitle = styled.div`
   h1{
     font-family: 'Poppins', sans-serif;
     font-size: 24px;
-    color: ${props => props.theme.darkGrey};
+    color: ${props => props.theme.darkFg};
   }
 
   span{
@@ -64,10 +64,15 @@ const QuestionField = styled.textarea`
   border: 0;
   padding: 16px;
   border-radius: 8px;
-  background: ${props => props.theme.darkerWhite};
+  background: ${props => props.theme.lighterBg};
   box-shadow: ${props => props.theme.boxShadow};
+  color: ${props => props.theme.fg};
   resize: vertical;
   min-height: 130px;
+
+  &::placeholder{
+    color: ${props => props.theme.darkFg}
+  }
 `
 
 const FormFooter = styled.div`
@@ -88,7 +93,7 @@ const FormFooter = styled.div`
 
     > span{
       margin-left: 8px;
-      color: ${props => props.theme.darkGrey};
+      color: ${props => props.theme.darkFg};
       font-weight: 500;
       font-size: 14px;
     }
@@ -106,6 +111,7 @@ const FormFooter = styled.div`
       font-size: 14px;
       cursor: pointer;
       font-weight: 500;
+      color: ${props => props.theme.pink}
     }
   }
 `
