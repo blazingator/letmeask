@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import {Button, ThemeSwitcher} from '../components'
+import {Button} from '../components'
 
 // import { auth, firebase } from '../services/firebase'
 import { useAuth } from '../hooks/useAuth'
@@ -61,8 +61,7 @@ export function Home(){
         <p>Tire as dúvidas de sua audiência em tempo-real</p>
       </Banner>
       <main>
-        <MainContent>
-          <ThemeSwitcher />
+        <MainContent> 
           <img src={theme.logo} alt="Letmeask" />
           <CreateRoomButton onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="Logo do google" />

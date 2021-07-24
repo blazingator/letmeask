@@ -1,16 +1,38 @@
-import {useContext} from 'react'
-import {Button} from '../Button'
+import { ButtonHTMLAttributes } from 'react'
+import { Moon, Sun } from 'react-feather'
 
-import {ThemeContext} from '../../contexts/ThemeContext'
+import { useTheme } from '../../hooks/useTheme'
 
-export function ThemeSwitcher(){
-  const {switchTheme} = useContext(ThemeContext)
+import { ThemeButton } from './styles'
+
+type ThemeSwitcherProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  isDarkMode: boolean
+}
+
+export function ThemeSwitcher({isDarkMode = false, ...props}: ThemeSwitcherProps){
+  const {switchTheme, theme} = useTheme()
 
   return (
-    <Button
+    <ThemeButton
       onClick={switchTheme}
+      {...props}
     >
-      Toggle Theme
-    </Button>
+      {isDarkMode 
+        ? (
+            <Sun
+              color={theme.fg}
+              fill={theme.fg}
+              size={25}
+            />
+          )
+        : (
+            <Moon
+              color={theme.fg}
+              fill={theme.fg}
+              size={25}
+            />
+          )
+      }
+    </ThemeButton>
   )
 }

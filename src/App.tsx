@@ -2,10 +2,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { DefaultTheme, ThemeProvider as StyledThemeProvider } from 'styled-components'
 
 import { AuthProvider } from './contexts/AuthContext'
-import {ThemeContext} from './contexts/ThemeContext'
+import { ThemeContext } from './contexts/ThemeContext'
 
-import {useTheme} from './hooks/useTheme'
-import {GlobalStyle} from './styles/global'
+import {ThemeSwitcher} from './components'
+
+import { GlobalStyle } from './styles/global'
 import {
   Home, NewRoom, Room, AdminRoom
 } from './pages'
@@ -24,6 +25,7 @@ function App() {
         value={{theme, switchTheme}}
       >
         <StyledThemeProvider theme={theme}>
+          <ThemeSwitcher isDarkMode={theme.name === 'dark'} />
           <AuthProvider>
             <GlobalStyle />
             <Switch>
