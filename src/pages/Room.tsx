@@ -18,7 +18,7 @@ type RoomParams = {
 }
 
 export function Room(){
-  const {logo} = useTheme()
+  const {theme} = useTheme()
   const {user} = useAuth()
   const params = useParams<RoomParams>()
   const roomId = params.id
@@ -65,7 +65,7 @@ export function Room(){
     <RoomPage id="page-room">
       <header>
         <HeaderContent>
-          <img src={logo} alt="Logo" />
+          <img src={theme.logo} alt="Logo" />
           <RoomCode code={roomId} />
         </HeaderContent>
       </header>

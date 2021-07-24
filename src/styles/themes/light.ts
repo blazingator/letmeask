@@ -1,6 +1,6 @@
 import logoImg from '../../assets/images/logo.svg'
 
-const lightTheme = {
+export const lightTheme = {
   name: 'light',
   main: '#835afd',
   bg: '#f8f8f8',
@@ -8,7 +8,6 @@ const lightTheme = {
   darkerBg: '#e2e2e2',
   fg: '#29292e',
   darkFg: '#29292e',
-  border: '#e2e2e2',
   purple: '#835afd',
   lightPurple: '#835afd',
   pink: '#e559f9',
@@ -21,9 +20,8 @@ const lightTheme = {
   darkWhite: '#e2e2e2',
   darkerWhite: '#fefefe',
   lighterWhite: '#faf0ff',
+  borderColor: '#e2e2e2',
   boxShadow: '0 2px 12px rgba(0,0,0, 0.04)',
   logo: logoImg
   //fonts: []
 }
-
-export default lightTheme

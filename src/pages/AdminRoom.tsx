@@ -19,7 +19,7 @@ type RoomParams = {
 }
 
 export function AdminRoom(){
-  const {logo} = useTheme()
+  const {theme} = useTheme()
   // const {user} = useAuth()
   const history = useHistory()
   const params = useParams<RoomParams>()
@@ -52,7 +52,7 @@ export function AdminRoom(){
     <RoomPage>
       <header>
         <HeaderContent>
-          <img src={logo} alt="Logo" />
+          <img src={theme.logo} alt="Logo" />
           <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleEndRoom}>Encerrar Sala</Button>

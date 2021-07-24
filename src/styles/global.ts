@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-import {theme} from './theme'
-
 export const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
@@ -10,8 +8,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    background: ${theme.bg};
-    color: ${theme.fg};
+    background: ${({theme}) => theme.bg};
+    color: ${({theme}) => theme.fg};
   }
 
   body, input, button, textarea{

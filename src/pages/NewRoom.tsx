@@ -14,7 +14,7 @@ import {
 import { database } from '../services/firebase'
 
 export function NewRoom(){
-  const {logo} = useTheme()
+  const {theme} = useTheme()
   const history = useHistory()
   const { user } = useAuth()
 
@@ -46,7 +46,7 @@ export function NewRoom(){
       </Banner>
       <main>
         <MainContent>
-          <img src={logo} alt="Letmeask" />
+          <img src={theme.logo} alt="Letmeask" />
           <h2>Criar um nova sala</h2>
           <Form onSubmit={handleCreateRoom}>
             <input

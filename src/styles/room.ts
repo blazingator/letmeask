@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const RoomPage = styled.header`
   header{
     padding: 24px;
-    border-bottom: 1px solid ${props => props.theme.border};
+    border-bottom: 1px solid ${props => props.theme.borderColor};
   }
 
   main{

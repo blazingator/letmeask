@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import {Button} from '../components'
+import {Button, ThemeSwitcher} from '../components'
 
 // import { auth, firebase } from '../services/firebase'
 import { useAuth } from '../hooks/useAuth'
@@ -18,7 +18,7 @@ import {
 import { database } from '../services/firebase'
 
 export function Home(){
-  const {logo} = useTheme()
+  const {theme} = useTheme()
   const { user, signInWithGoogle} = useAuth()
   const history = useHistory()
 
@@ -62,7 +62,8 @@ export function Home(){
       </Banner>
       <main>
         <MainContent>
-          <img src={logo} alt="Letmeask" />
+          <ThemeSwitcher />
+          <img src={theme.logo} alt="Letmeask" />
           <CreateRoomButton onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="Logo do google" />
             Crie sua sala com o Google
