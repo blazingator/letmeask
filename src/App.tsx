@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { DefaultTheme, ThemeProvider as StyledThemeProvider } from 'styled-components'
 
@@ -10,22 +11,28 @@ import { GlobalStyle } from './styles/global'
 import {
   Home, NewRoom, Room, AdminRoom
 } from './pages'
-import { useState } from 'react'
 import { darkTheme, lightTheme } from './styles/themes'
 
 function App() {
-  const [theme, setTheme] = useState<DefaultTheme>(lightTheme)
+  const [theme, setTheme] = useState(localStorage.theme || 'light')
+  const [selectedTheme, setSelectedTheme] = useState<DefaultTheme>(lightTheme)
 
-  const switchTheme = () => theme.name === 'light' ? setTheme(darkTheme) 
-    : setTheme(lightTheme)
+  function switchTheme(){
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    localStorage.theme = newTheme
+    setTheme(newTheme)
+  }
+  useEffect(() => {
+    setSelectedTheme(theme === 'dark' ? darkTheme : lightTheme)
+  }, [theme])
 
   return (
     <BrowserRouter>
       <ThemeContext.Provider
-        value={{theme, switchTheme}}
+        value={{theme: selectedTheme, switchTheme}}
       >
-        <StyledThemeProvider theme={theme}>
-          <ThemeSwitcher isDarkMode={theme.name === 'dark'} />
+        <StyledThemeProvider theme={selectedTheme}>
+          <ThemeSwitcher isDarkMode={theme === 'dark'} />
           <AuthProvider>
             <GlobalStyle />
             <Switch>
