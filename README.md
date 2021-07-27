@@ -4,7 +4,7 @@
 
 App para criação de salas de perguntas e repostas para ser usado durante livestreams
 
-> App feito durante a NextLevelWeek/Together realizada pela [Rockseat](https://rocketseat.com.br)
+> App feito durante a NextLevelWeek/Together realizada pela [RocketSeat](https://rocketseat.com.br)
 
 ## Funcionalidades
 - Criação de salas
@@ -26,8 +26,9 @@ App para criação de salas de perguntas e repostas para ser usado durante lives
 - [Firebase](https://firebase.google.com) Real Time Database
 
 ## Prómixas implementações
-- [ ] Adicionar StyledComponents
-- [ ] Modo escuro
+- [x] Adicionar StyledComponents
+- [x] Modo escuro
+- [ ] Conectar a API da Twitch.tv
 - [ ] Melhorar o sistema de login
 - [ ] Tornar o layout responsivo
 - [ ] Criar uma versão PWA
