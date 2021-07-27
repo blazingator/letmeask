@@ -21,15 +21,13 @@ export const ButtonStyles = styled.button`
     margin-right: 8px;
   }
 
-  &.outlined{
-    background: ${props => props.theme.lighterGrey};
-    // TODO melhorar o contraste de cores da borda no tema dark
-    border: ${({theme}) => theme.name === 'dark'
-      ? 'none'
-      : `1px solid ${theme.main}`
-    };
-    color: ${props => props.theme.main};
-  }
+  &.outlined {
+    background: ${({theme}) => theme.lighterBg};
+    border: 1px solid ${({theme}) => theme.main};
+    color: ${({theme}) => theme.name === 'dark'
+      ? theme.fg
+      : theme.main};
+}
 
   &:not(:disabled):hover{
     filter: brightness(0.9);

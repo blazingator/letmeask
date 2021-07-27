@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  background: ${props => props.theme.darkerBg};
+  background: ${({theme}) => theme.name === 'dark' ? theme.darkerBg : theme.darkerWhite};
   border-radius: 8px;
   box-shadow: ${props => props.theme.boxShadow};
   padding: 24px;
