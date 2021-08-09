@@ -7,13 +7,18 @@ import {Button} from '../components'
 import { useAuth } from '../hooks/useAuth'
 
 import ilustImg from '../assets/images/illustration.svg'
-import logoImg from '../assets/images/logo.svg'
+// import logoImg from '../assets/images/logo.svg'
 import googleIconImg from '../assets/images/google-icon.svg'
+import { useTheme } from '../hooks/useTheme'
+import {
+  AuthPage, Banner, MainContent,
+  Separator, CreateRoomButton, Form
+} from '../styles/auth'
 
-import '../styles/auth.scss'
 import { database } from '../services/firebase'
 
 export function Home(){
+  const {theme} = useTheme()
   const { user, signInWithGoogle} = useAuth()
   const history = useHistory()
 
@@ -49,21 +54,21 @@ export function Home(){
   }
 
   return (
-    <div id="page-auth">
-      <aside>
+    <AuthPage id="page-auth">
+      <Banner>
         <img src={ilustImg} alt="Ilustração simbolizando perguntas e repostas" />
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas de sua audiência em tempo-real</p>
-      </aside>
+      </Banner>
       <main>
-        <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />
-          <button className="create-room" onClick={handleCreateRoom}>
+        <MainContent> 
+          <img src={theme.logo} alt="Letmeask" />
+          <CreateRoomButton onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="Logo do google" />
             Crie sua sala com o Google
-          </button>
-          <div className="separator">ou entre em uma sala</div>
-          <form onSubmit={handleJoinRoom}>
+          </CreateRoomButton>
+          <Separator>ou entre em uma sala</Separator>
+          <Form onSubmit={handleJoinRoom}>
             <input
               type="text"
               placeholder="Digite o código da sala"
@@ -73,9 +78,9 @@ export function Home(){
             <Button type="submit">
               Entrar na sala
             </Button>
-          </form>
-        </div>
+          </Form>
+        </MainContent>
       </main>
-    </div>
+    </AuthPage>
   )
 }

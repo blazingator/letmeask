@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import cx from 'classnames'
 
-import '../styles/question.scss'
+import { Wrapper, Content, Footer, UserInfo, UserAvatar } from './styles'
 
 type QuestionProps = {
   content: string
@@ -22,21 +22,21 @@ export function Question({
   children
 }: QuestionProps){
   return(
-    <div
+    <Wrapper
       className={cx(
         'question',
         {answered: isAnswered},
         {highlighted: isHighlighted && !isAnswered}
       )}
     >
-      <p>{content}</p>
-      <footer>
-        <div className="user-info">
-          <img src={author.avatar} alt={author.name}/>
+      <Content>{content}</Content>
+      <Footer>
+        <UserInfo>
+          <UserAvatar src={author.avatar} alt={author.name}/>
           <span>{author.name}</span>
-        </div>
+        </UserInfo>
         <div>{children}</div>
-      </footer>
-    </div>
+      </Footer>
+    </Wrapper>
   )
 }

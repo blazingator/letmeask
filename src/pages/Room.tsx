@@ -3,9 +3,12 @@ import { useParams } from 'react-router-dom'
 
 import {Button, RoomCode, Question} from '../components'
 
-import logoImg from '../assets/images/logo.svg'
+// import logoImg from '../assets/images/logo.svg'
+import {useTheme} from '../hooks/useTheme'
+import {
+  RoomPage, HeaderContent, RoomTitle, QuestionList, QuestionField, FormFooter
+} from '../styles/room'
 
-import '../styles/room.scss'
 import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
 import { database } from '../services/firebase'
@@ -15,6 +18,7 @@ type RoomParams = {
 }
 
 export function Room(){
+  const {theme} = useTheme()
   const {user} = useAuth()
   const params = useParams<RoomParams>()
   const roomId = params.id
@@ -58,28 +62,28 @@ export function Room(){
   }
 
   return (
-    <div id="page-room">
+    <RoomPage id="page-room">
       <header>
-        <div className="content">
-          <img src={logoImg} alt="Logo" />
+        <HeaderContent>
+          <img src={theme.logo} alt="Logo" />
           <RoomCode code={roomId} />
-        </div>
+        </HeaderContent>
       </header>
 
       <main>
-        <div className="room-title">
+        <RoomTitle>
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
-        </div>
+        </RoomTitle>
 
         <form onSubmit={handleSendQuestion}>
-          <textarea
+          <QuestionField
             placeholder="O que você quer perguntar?"
             onChange={ev => setNewQuestion(ev.target.value)}
             value={newQuestion}
           />
 
-          <div className="form-footer">
+          <FormFooter>
             { user ? (
               <div className="user-info">
                 <img src={user.avatar} alt={user.name} />
@@ -89,10 +93,10 @@ export function Room(){
               <span>Para enviar uma pergunta, <button>faça seu login</button>.</span>
             ) }
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
-          </div>
+          </FormFooter>
         </form>
 
-        <div className="question-list">
+        <QuestionList>
           {questions.map((q) => (
             <Question
               key={q.id}
@@ -117,8 +121,8 @@ export function Room(){
             </Question>
             )
           )}
-        </div>
+        </QuestionList>
       </main>
-    </div>
+    </RoomPage>
   )
 }

@@ -2,11 +2,13 @@ import { useHistory, useParams } from 'react-router-dom'
 
 import {Button, RoomCode, Question} from '../components'
 
-import logoImg from '../assets/images/logo.svg'
 import deleteImg from '../assets/images/delete.svg'
 import checkImg from '../assets/images/check.svg'
 import answerImg from '../assets/images/answer.svg'
-import '../styles/room.scss'
+import {useTheme} from '../hooks/useTheme'
+import {
+  RoomPage, HeaderContent, RoomTitle, QuestionList
+} from '../styles/room'
 
 // import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
@@ -17,6 +19,7 @@ type RoomParams = {
 }
 
 export function AdminRoom(){
+  const {theme} = useTheme()
   // const {user} = useAuth()
   const history = useHistory()
   const params = useParams<RoomParams>()
@@ -46,24 +49,24 @@ export function AdminRoom(){
   }
 
   return (
-    <div id="page-room">
+    <RoomPage>
       <header>
-        <div className="content">
-          <img src={logoImg} alt="Logo" />
+        <HeaderContent>
+          <img src={theme.logo} alt="Logo" />
           <div>
             <RoomCode code={roomId} />
             <Button isOutlined onClick={handleEndRoom}>Encerrar Sala</Button>
           </div>  
-      </div>
+        </HeaderContent>
       </header>
 
       <main>
-        <div className="room-title">
+        <RoomTitle>
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
-        </div>
+        </RoomTitle>
 
-        <div className="question-list">
+        <QuestionList>
           {questions.map((q) => (
             <Question
               key={q.id}
@@ -97,8 +100,8 @@ export function AdminRoom(){
             </Question>
             )
           )}
-        </div>
+        </QuestionList>
       </main>
-    </div>
+    </RoomPage>
   )
 }
